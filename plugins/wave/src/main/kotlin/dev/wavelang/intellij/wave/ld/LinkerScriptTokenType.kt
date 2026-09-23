@@ -9,6 +9,7 @@ object LinkerScriptTokens {
   val KEYWORD = LinkerScriptTokenType("KEYWORD")
   val BUILTIN = LinkerScriptTokenType("BUILTIN")
   val SECTION = LinkerScriptTokenType("SECTION")
+  val DOT = LinkerScriptTokenType("DOT")
   val NUMBER = LinkerScriptTokenType("NUMBER")
   val STRING = LinkerScriptTokenType("STRING")
   val IDENT = LinkerScriptTokenType("IDENT")

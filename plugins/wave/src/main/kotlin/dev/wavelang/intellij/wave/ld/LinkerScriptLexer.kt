@@ -56,6 +56,7 @@ class LinkerScriptLexer : LexerBase() {
     if (scanComment()) return
     if (scanString()) return
     if (scanSection()) return
+    if (scanStandaloneDot()) return
     if (scanNumber()) return
     if (scanWord()) return
     if (scanPunctuationOrOperator()) return
@@ -130,6 +131,13 @@ class LinkerScriptLexer : LexerBase() {
     var i = position + 2
     while (i < endOffset && isIdentifierPart(buffer[i])) i++
     emit(LinkerScriptTokens.SECTION, i)
+    return true
+  }
+
+  private fun scanStandaloneDot(): Boolean {
+    if (buffer[position] != '.') return false
+
+    emit(LinkerScriptTokens.DOT, position + 1)
     return true
   }
 
