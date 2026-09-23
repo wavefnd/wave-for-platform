@@ -16,7 +16,8 @@ class LinkerScriptLexerTest {
     while (true) {
       val type = lexer.tokenType ?: break
       val text = source.substring(lexer.tokenStart, lexer.tokenEnd)
-      out += LexedToken(type = type,
+      out += LexedToken(
+        type = type,
         text = text,
         start = lexer.tokenStart,
         end = lexer.tokenEnd
@@ -62,7 +63,7 @@ class LinkerScriptLexerTest {
     val tokens = lexAll(source)
 
     assertTrue(tokens.size == 1)
-    assertTrue(tokens[0].type == LinkerScriptTokens.DOT)
+    assertTrue(tokens[0].type == LinkerScriptTokens.OPERATOR)
     assertTrue(tokens[0].text == ".")
     assertTrue(tokens[0].start == 0)
     assertTrue(tokens[0].end == 1)
@@ -81,7 +82,7 @@ class LinkerScriptLexerTest {
     assertTrue(tokens[1].type == LinkerScriptTokens.SEMICOLON)
     assertTrue(tokens[1].text == ";")
 
-    assertTrue(tokens[2].type == LinkerScriptTokens.DOT)
+    assertTrue(tokens[2].type == LinkerScriptTokens.OPERATOR)
     assertTrue(tokens[2].text == ".")
     assertTrue(tokens[2].start == 4)
     assertTrue(tokens[2].end == 5)
@@ -123,7 +124,7 @@ class LinkerScriptLexerTest {
 
     assertTrue(tokens.none { it.type == TokenType.BAD_CHARACTER })
 
-    val dots = tokens.filter { it.type == LinkerScriptTokens.DOT }
+    val dots = tokens.filter { it.type == LinkerScriptTokens.OPERATOR && it.text == "." }
 
     assertTrue(dots.size == 3)
     assertTrue(dots.all { it.text == "." })

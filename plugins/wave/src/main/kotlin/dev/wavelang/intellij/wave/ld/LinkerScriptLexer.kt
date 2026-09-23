@@ -137,7 +137,7 @@ class LinkerScriptLexer : LexerBase() {
   private fun scanStandaloneDot(): Boolean {
     if (buffer[position] != '.') return false
 
-    emit(LinkerScriptTokens.DOT, position + 1)
+    emit(LinkerScriptTokens.OPERATOR, position + 1)
     return true
   }
 
