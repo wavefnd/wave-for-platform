@@ -1,0 +1,25 @@
+; A basic Whale IR module for testing syntax highlighting
+
+module {
+  format_version 2
+  semantics_version 1
+  target "x86_64-whale-linux"
+  datalayout { ptr=64, endian=little }
+
+  declare @f0 "emit": sysv64 (i32) -> void, linkage external, link_name "emit_i32"
+  declare @f1 "main": whale (i32, ptr<ptr<u8>>) -> i32, linkage external
+
+  fn @main(argc: i32, argv: ptr<ptr<u8>>) -> i32, id @f1 {
+  0:
+    %v2: i32 = const i32 1
+    %v3: i32 = add i32 %v0, %v2
+    %v4: bool = icmp eq i32 %v3, 2
+    cbr bool %v4, label 1, label 2
+
+  1:
+    ret i32 0
+
+  2:
+    ret i32 1
+  }
+}

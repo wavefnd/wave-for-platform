@@ -20,10 +20,13 @@
               extensions="s;S;asm;nasm;riscv;rvs"/>
     <fileType name="Wave Linker Script" language="WaveLinkerScript" implementationClass="dev.wavelang.intellij.wave.ld.LinkerScriptFileType"
               extensions="ld"/>
+    <fileType name="Whale IR" language="WhaleIR" implementationClass="dev.wavelang.intellij.wave.ir.WhaleIrFileType"
+              extensions="wir"/>
     <lang.syntaxHighlighterFactory language="Wave" implementationClass="dev.wavelang.intellij.wave.highlight.WaveSyntaxHighlighterFactory"/>
     <lang.syntaxHighlighterFactory language="WaveMakefile" implementationClass="dev.wavelang.intellij.wave.make.MakefileSyntaxHighlighterFactory"/>
     <lang.syntaxHighlighterFactory language="WaveAssembly" implementationClass="dev.wavelang.intellij.wave.asm.AssemblySyntaxHighlighterFactory"/>
     <lang.syntaxHighlighterFactory language="WaveLinkerScript" implementationClass="dev.wavelang.intellij.wave.ld.LinkerScriptSyntaxHighlighterFactory"/>
+    <lang.syntaxHighlighterFactory language="WhaleIR" implementationClass="dev.wavelang.intellij.wave.ir.WhaleIrSyntaxHighlighterFactory"/>
     <platform.lsp.serverSupportProvider implementation="dev.wavelang.intellij.wave.lsp.WaveLspServerSupportProvider"/>
   </extensions>
 </idea-plugin>
